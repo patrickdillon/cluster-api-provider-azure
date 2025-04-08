@@ -1,6 +1,8 @@
-module sigs.k8s.io/cluster-api-provider-azure
+module github.com/openshift/cluster-api-provider-azurestack // CAPZ v1.18.0
 
 go 1.22.11
+
+replace sigs.k8s.io/cluster-api-provider-azure => .
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.17.0
@@ -54,6 +56,7 @@ require (
 	k8s.io/utils v0.0.0-20240711033017-18e509b52bc8
 	sigs.k8s.io/cloud-provider-azure v1.30.4
 	sigs.k8s.io/cluster-api v1.9.4
+	sigs.k8s.io/cluster-api-provider-azure v0.0.0-00010101000000-000000000000
 	sigs.k8s.io/cluster-api/test v1.9.4
 	sigs.k8s.io/controller-runtime v0.19.4
 	sigs.k8s.io/kind v0.26.0
