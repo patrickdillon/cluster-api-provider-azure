@@ -559,10 +559,6 @@ func (s *ClusterScope) VNetSpec() azure.ASOResourceSpecGetter[*asonetworkv1api20
 // PrivateDNSSpec returns the private dns zone spec.
 func (s *ClusterScope) PrivateDNSSpec() (zoneSpec azure.ResourceSpecGetter, linkSpec, recordSpec []azure.ResourceSpecGetter) {
 	if s.IsAPIServerPrivate() && !s.IsHybridEnvironment() {
-		resourceGroup := s.ResourceGroup()
-		if s.AzureCluster.Spec.NetworkSpec.PrivateDNSZoneResourceGroup != "" {
-			resourceGroup = s.AzureCluster.Spec.NetworkSpec.PrivateDNSZoneResourceGroup
-		}
 		zone := privatedns.ZoneSpec{
 			Name:           s.GetPrivateDNSZoneName(),
 			ResourceGroup:  s.ResourceGroup(),
